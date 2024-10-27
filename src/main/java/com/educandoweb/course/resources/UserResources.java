@@ -36,4 +36,10 @@ public class UserResources {
         return ResponseEntity.created(uri).body(obj);
     }
     //201 é o certo para criar recurso created é o ideal mas ele pede uma URI olhar como cria
+
+    @DeleteMapping(value = "/{id}")
+    public ResponseEntity<Void> delete(@PathVariable Long id){
+       service.delete(id);
+       return ResponseEntity.noContent().build();
+    }
 }
